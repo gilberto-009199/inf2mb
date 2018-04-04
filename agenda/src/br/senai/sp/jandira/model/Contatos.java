@@ -7,7 +7,7 @@ public class Contatos {
 	private String endereco;
 	private String celular;
 	private String email;
-	public int getId() {
+	public int getId()  {
 		return id;
 	}
 	public void setId(int id) {
