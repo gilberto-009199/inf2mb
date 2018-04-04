@@ -1,6 +1,6 @@
 package br.senai.sp.jandira.agenda.model;
 
-public class Contatos {
+public class Contato {
 	private int id;
 	private String nome;
 	private String dtNac;
