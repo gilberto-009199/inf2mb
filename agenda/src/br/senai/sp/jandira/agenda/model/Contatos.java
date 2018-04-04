@@ -1,4 +1,4 @@
-package br.senai.sp.jandira.model;
+package br.senai.sp.jandira.agenda.model;
 
 public class Contatos {
 	private int id;
@@ -7,6 +7,7 @@ public class Contatos {
 	private String endereco;
 	private String celular;
 	private String email;
+	
 	public int getId()  {
 		return  id;
 	}
