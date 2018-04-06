@@ -1,2 +1,2 @@
 # inf2mb
-<p aling="center">Repository in class</p> 
+<p align="center">Repository das  classes da agenda</p> 
