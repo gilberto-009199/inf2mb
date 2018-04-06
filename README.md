@@ -1,2 +1,2 @@
 # inf2mb
-Repository in class 
+<p aling="center">Repository in class</p> 
