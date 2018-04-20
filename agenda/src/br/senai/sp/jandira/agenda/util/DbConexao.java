@@ -15,15 +15,19 @@ public class DbConexao {
 		
 		try{
 			Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+			
 			File banco=new File("./bancoagenda.accdb");
 			if (!banco.exists()) {
-				JOptionPane.showMessageDialog(null, " Erro arquivo n„o encontrado");
-			}
+				JOptionPane.showMessageDialog(null, " Erro arquivo n√£o encontrado");
+			}else{
 			conet = DriverManager.getConnection("jdbc:ucanaccess://"+ banco.toString());
-			System.out.println(" A conex„o com o banco foi bem sucedida!");			
+			//System.out.println(" A conex√£o com o banco foi bem sucedida!");	
+			
+			
+			}
 		}catch (Exception e) {
 			JOptionPane.showMessageDialog(null, " Erro ao conectar ao banco: "+e.getMessage());
-			System.out.println("Erro ao conectar ao banco: "+e.getMessage());
+			System.out.println(" Erro ao conectar ao banco: "+e.getMessage());
 		}
 		
 		return conet;
