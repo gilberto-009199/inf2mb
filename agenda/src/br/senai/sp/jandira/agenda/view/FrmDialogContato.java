@@ -1,14 +1,11 @@
 package br.senai.sp.jandira.agenda.view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.text.ParseException;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -20,20 +17,26 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextPane;
-import javax.swing.UIManager;
+
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
-import javax.swing.table.DefaultTableModel;
 
 import br.senai.sp.jandira.agenda.dao.ContatoDAO;
 import br.senai.sp.jandira.agenda.model.Contato;
-import br.senai.sp.jandira.agenda.util.DbConexao;
+
+import javax.swing.JFormattedTextField;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
 public class FrmDialogContato extends JFrame {
 
 	private JPanel contentPane;
+	private JFormattedTextField txtNacimento;
+	private JFormattedTextField txtCelular;
+	private JTextField txtNome;
+	private JTextField txtTelefone;
+	private JTextField txtmail;
 
 	public FrmDialogContato(String FormModel, Contato selecionado) {
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
@@ -77,40 +80,19 @@ public class FrmDialogContato extends JFrame {
 		panel_1.add(lblNome);
 
 		JLabel lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setBounds(31, 53, 61, 14);
+		lblTelefone.setBounds(31, 53, 80, 14);
 		panel_1.add(lblTelefone);
 
 		JLabel lblEmail = new JLabel("E-mail:");
 		lblEmail.setBounds(31, 78, 61, 14);
 		panel_1.add(lblEmail);
 
-		JTextPane txtNome = new JTextPane();
-		txtNome.setBounds(129, 28, 193, 20);
-
-		panel_1.add(txtNome);
-
-		JTextPane txtTelefone = new JTextPane();
-		txtTelefone.setBounds(129, 53, 193, 20);
-		panel_1.add(txtTelefone);
-
-		JTextPane txtmail = new JTextPane();
-		txtmail.setBounds(129, 78, 193, 20);
-		panel_1.add(txtmail);
-
 		JLabel lblCelular = new JLabel("Celular:");
 		lblCelular.setBounds(31, 104, 61, 14);
 		panel_1.add(lblCelular);
 
-		JTextPane txtCelular = new JTextPane();
-		txtCelular.setBounds(129, 104, 193, 20);
-		panel_1.add(txtCelular);
-
-		JTextPane txtNacimento = new JTextPane();
-		txtNacimento.setBounds(163, 130, 159, 20);
-		panel_1.add(txtNacimento);
-
 		JLabel lblDataDeNacimento = new JLabel("Data de Nacimento:");
-		lblDataDeNacimento.setBounds(31, 130, 114, 14);
+		lblDataDeNacimento.setBounds(31, 130, 159, 14);
 		panel_1.add(lblDataDeNacimento);
 
 		JLabel lblEndere = new JLabel("Endereço:");
@@ -130,11 +112,54 @@ public class FrmDialogContato extends JFrame {
 		lblSexo.setBounds(31, 155, 46, 14);
 		panel_1.add(lblSexo);
 
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "M", "F" }));
+		JComboBox<Object> comboBox = new JComboBox<Object>();
+		comboBox.setModel(new DefaultComboBoxModel<Object>(new String[] { "M", "F" }));
 		comboBox.setBounds(129, 155, 46, 20);
 		panel_1.add(comboBox);
 
+		javax.swing.text.MaskFormatter data;
+		javax.swing.text.MaskFormatter celular;
+
+		try {
+			data = new javax.swing.text.MaskFormatter("##/##/####");
+			txtNacimento = new javax.swing.JFormattedTextField(data);
+			txtNacimento.setHorizontalAlignment(SwingConstants.CENTER);
+
+		} catch (ParseException e1) {
+
+			e1.printStackTrace();
+		}
+		txtNacimento.setBounds(233, 130, 88, 25);
+		panel_1.add(txtNacimento);
+
+		try {
+			celular = new javax.swing.text.MaskFormatter("(##)#########");
+			txtCelular = new javax.swing.JFormattedTextField(celular);
+		} catch (Exception e) {
+
+		}
+
+		txtCelular.setHorizontalAlignment(SwingConstants.LEFT);
+
+		txtCelular.setBounds(215, 101, 106, 25);
+		panel_1.add(txtCelular);
+
+		txtNome = new JTextField();
+		txtNome.setBounds(129, 25, 193, 25);
+		panel_1.add(txtNome);
+		txtNome.setColumns(10);
+
+		txtTelefone = new JTextField();
+		txtTelefone.setColumns(10);
+		txtTelefone.setBounds(129, 50, 193, 25);
+		panel_1.add(txtTelefone);
+
+		txtmail = new JTextField();
+		txtmail.setColumns(10);
+		txtmail.setBounds(129, 75, 193, 25);
+		panel_1.add(txtmail);
+		
+		
 		JButton btnSair = new JButton("Sair");
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -152,7 +177,7 @@ public class FrmDialogContato extends JFrame {
 				new ImageIcon(FrmDialogContato.class.getResource("/br/senai/sp/jandira/agenda/imagens/data.png")));
 		btnSalvar.setBounds(241, 350, 106, 38);
 		contentPane.add(btnSalvar);
-		txtNome.requestFocus();
+
 		if (FormModel.equals("add")) {
 			btnop.setBackground(new Color(154, 205, 50));
 			btnop.setIcon(
@@ -170,59 +195,55 @@ public class FrmDialogContato extends JFrame {
 						usertemp.setSexo(comboBox.getSelectedItem().toString());
 						usertemp.setTelefone(txtTelefone.getText());
 						usertemp.setCelular(txtCelular.getText());
+						if (verifica(usertemp)) {
+							if (new ContatoDAO(usertemp).gravar()) {
+								JOptionPane.showMessageDialog(null,
+										"Usuario: " + usertemp.getNome() + ", registrado com sucesso!");
+								txtNome.setText("");
+								txtNome.requestFocus();
+								txtTelefone.setText("");
+								txtmail.setText("");
+								txtCelular.setText("");
+								txtNacimento.setText("");
+								textAreaEndereco.setText("");
+							} else {
+								JOptionPane.showMessageDialog(null, "Erro ao gravar Usuario: " + usertemp.getNome());
+							}
 
-						if (new ContatoDAO(usertemp).gravar()) {
-							JOptionPane.showMessageDialog(null,
-									"Usuario: " + usertemp.getNome() + ", registrado com sucesso!");
-							txtNome.setText("");
 							txtNome.requestFocus();
-							txtTelefone.setText("");
-							txtmail.setText("");
-							txtCelular.setText("");
-							txtNacimento.setText("");
-							textAreaEndereco.setText("");
-						} else {
-							JOptionPane.showMessageDialog(null, "Erro ao gravar Usuario: " + usertemp.getNome());
 						}
-
-						txtNome.requestFocus();
 					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+						JOptionPane.showMessageDialog(null, " Erro ao chamar class :" + e.getMessage());
 					}
 				}
 			});
 		} else if (FormModel.equals("edit")) {
 			txtNome.setText(selecionado.getNome());
-			txtmail.setText(selecionado.getTelefone());
+			txtmail.setText(selecionado.getEmail());
 			txtTelefone.setText(selecionado.getTelefone());
 
 			btnop.setBackground(new Color(60, 179, 113));
 			btnop.setIcon(new ImageIcon(
 					FrmDialogContato.class.getResource("/br/senai/sp/jandira/agenda/imagens/EditContact.png")));
-			PreparedStatement stn = null;
-			ResultSet rts = null;
-			String query = "SELECT dtNac,endereco,celular,sexo FROM contatos where id=" + selecionado.getId() + " ;";
 
-			try {
-				stn = DbConexao.abrirConexao().prepareStatement(query);
-				rts = stn.executeQuery();
+			Contato userTemp = new ContatoDAO().getContato(selecionado.getId());
 
-				while (rts.next()) {
-					// retorna os dados da tabela do BD, cada campo e um coluna.
+			selecionado.setCelular(userTemp.getCelular());
 
-					String ano = rts.getString("dtNac").substring(0, 4);
-					String mes = rts.getString("dtNac").substring(5, 7);
-					String dia = rts.getString("dtNac").substring(8, 10);
-					txtNacimento.setText(dia+"/"+mes+"/"+ano);
-					textAreaEndereco.setText(rts.getString("endereco"));
-					txtCelular.setText(rts.getString("celular"));
-					comboBox.setSelectedItem(rts.getString("sexo"));
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			selecionado.setDtNac(userTemp.getDtNac());
+			selecionado.setCelular(userTemp.getCelular());
+
+			txtNacimento.setText(selecionado.getDtNac());
+
+			selecionado.setEndereco(userTemp.getEndereco());
+
+			selecionado.setSexo(userTemp.getSexo());
+
+			txtCelular.setText(selecionado.getCelular());
+
+			textAreaEndereco.setText(selecionado.getEndereco());
+
+			comboBox.setSelectedItem(selecionado.getSexo());
 
 			btnSalvar.addActionListener(new ActionListener() {
 
@@ -232,13 +253,15 @@ public class FrmDialogContato extends JFrame {
 					selecionado.setCelular(txtCelular.getText());
 					selecionado.setTelefone(txtTelefone.getText());
 					selecionado.setNome(txtNome.getText());
+
 					selecionado.setDtNac(txtNacimento.getText());
+					selecionado.setSexo(comboBox.getSelectedItem().toString());
 					selecionado.setEndereco(textAreaEndereco.getText());
 					selecionado.setEmail(txtmail.getText());
-
-					adicionar.setContato(selecionado);
-					adicionar.atualizar();
-
+					if (verifica(selecionado)) {
+						adicionar.setContato(selecionado);
+						adicionar.atualizar();
+					}
 				}
 			});
 
@@ -248,26 +271,34 @@ public class FrmDialogContato extends JFrame {
 			btnop.setBackground(new Color(255, 0, 0));
 			btnSair.setBackground(new Color(220, 20, 60));
 			btnSalvar.setBackground(new Color(220, 20, 60));
+			txtNome.setText(selecionado.getNome());
+			txtmail.setText(selecionado.getEmail());
+			txtTelefone.setText(selecionado.getTelefone());
+			Contato userTemp = new ContatoDAO().getContato(selecionado.getId());
+			
+			selecionado.setCelular(userTemp.getCelular());
+			selecionado.setDtNac(userTemp.getDtNac());
+			selecionado.setEndereco(userTemp.getEndereco());
+			txtCelular.setText(selecionado.getCelular());
+			txtNacimento.setText(selecionado.getDtNac());
+			textAreaEndereco.setText(selecionado.getEndereco());
 
+			
+			comboBox.setSelectedItem(selecionado.getSexo());
 			btnSalvar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 
-					try {
-						Contato usertemp = new Contato();
-						usertemp.setNome(txtNome.getText());
-
-						usertemp.setDtNac(txtNacimento.getText());
-						usertemp.setEmail(txtmail.getText());
-						usertemp.setEndereco(textAreaEndereco.getText());
-						usertemp.setSexo(comboBox.getSelectedItem().toString());
-						usertemp.setTelefone(txtTelefone.getText());
-						usertemp.setCelular(txtCelular.getText());
-
-						new ContatoDAO(usertemp).gravar();
-					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+					Contato usertemp = new Contato();
+					usertemp.setNome(txtNome.getText());
+					if (selecionado.getId() != 0) {
+						usertemp.setId(selecionado.getId());
+					} else {
+						usertemp.setId((Integer.parseInt(JOptionPane.showInputDialog(null,
+								"Por favor Digite o ID do usuario que será deletado!"))));
 					}
+					
+					new ContatoDAO(usertemp).excluir();
+
 				}
 			});
 		}
@@ -275,4 +306,31 @@ public class FrmDialogContato extends JFrame {
 		setVisible(true);
 	}
 
+	protected boolean verifica(Contato usertemp) {
+
+		if (usertemp.getNome().equals("") || usertemp.getNome().equals(null)) {
+			JOptionPane.showMessageDialog(null, "Erro: Campo Nome não Preenchido! Usuario não gravado!");
+			return false;
+		} else if (usertemp.getTelefone().equals("") || usertemp.getTelefone().equals(null)) {
+			JOptionPane.showMessageDialog(null, "Erro: Campo Telefone não Preenchido! Usuario não gravado!");
+			return false;
+		} else if (usertemp.getEmail().equals("") || usertemp.getEmail().equals(null)) {
+			JOptionPane.showMessageDialog(null, "Erro: Campo E-mail não Preenchido! Usuario não gravado!");
+			return false;
+		} else if (usertemp.getCelular().equals("") || usertemp.getCelular().equals(null)) {
+			JOptionPane.showMessageDialog(null, "Erro: Campo Celular não Preenchido! Usuario não gravado!");
+			return false;
+		} else if (usertemp.getDtNac().equals("") || usertemp.getDtNac().equals(null)) {
+			JOptionPane.showMessageDialog(null, "Erro: Campo Nacimento não Preenchido! Usuario não gravado!");
+			return false;
+		} else if (usertemp.getSexo().equals("") || usertemp.getSexo().equals(null)) {
+			JOptionPane.showMessageDialog(null, "Erro: Campo Sexo não Preenchido! Usuario não gravado!");
+			return false;
+		} else if (usertemp.getEndereco().equals("") || usertemp.getEndereco().equals(null)) {
+			JOptionPane.showMessageDialog(null, "Erro: Campo Endereço não Preenchido! Usuario não gravado!");
+			return false;
+		} else {
+			return true;
+		}
+	}
 }
