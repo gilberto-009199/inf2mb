@@ -66,7 +66,8 @@ public class ContatoDAO {
 		PreparedStatement stn = null;
 		// ResultSet rts = null;
 		String Sql = "insert into contatos(nome,dtNasc,endereco,telefone,celular,email,sexo)values(?,?,?,?,?,?,?);";
-
+		 
+	
 		try {
 			stn = DbConexao.abrirConexao().prepareStatement(Sql);
 			// data ano-mes-dia:::
@@ -74,24 +75,6 @@ public class ContatoDAO {
 			String dia = contato.getDtNac().substring(0, 2);
 			String mes = contato.getDtNac().substring(3, 5);
 			String ano = contato.getDtNac().substring(6, 10);
-			/*
-			 * SimpleDateFormat toDate= new SimpleDateFormat(dd/MM/yyyy); String
-			 * datausuaruio= null datausuario=
-			 * toDate.parse(contato.detDtNac).toString;
-			 * 
-			 * SimpleDateFormat toDate= new SimpleDateFormat("dd/MM/yyyy");
-			 * SimpleDateFormat toDateBase= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.000000");
-			 * String dateusuario= null; 
-			 * String datedb= null;
-			 * try{ 
-			 * dateusuario=toDate.parse(contato.getDtNac()).toString(); 
-			 * datedb= toDateBanco.format(dateusuario);//Pronto!
-			 *
-			 * }catch (Exception e)
-			 * 
-			 * { // TODO: handle exception }
-			 */
-
 			String data = ano + "-" + mes + "-" + dia + " 00:00:00.000000";
 			// JOptionPane.showMessageDialog(null, data);
 
@@ -120,15 +103,12 @@ public class ContatoDAO {
 		String ano = contato.getDtNac().substring(6, 10);
 		String data = ano + "-" + mes + "-" + dia + " 00:00:00.000000";
 
-		/*
-		 * String query = "UPDATE contatos " + "SET nome='" + contato.getNome()
-		 * + "',dtNasc='" + data + "',endereco='" + contato.getEndereco() +
-		 * "',telefone='" + contato.getTelefone() + "',celular='" +
-		 * contato.getCelular() + "',email='" + contato.getEmail() +
-		 * "' WHERE ID='" + contato.getId() + "';";
-		 */
+		/*String query = "UPDATE contatos " + "SET nome='" + contato.getNome() + "',dtNasc='" + data + "',endereco='"
+				+ contato.getEndereco() + "',telefone='" + contato.getTelefone() + "',celular='" + contato.getCelular()
+				+ "',email='" + contato.getEmail() + "' WHERE ID='" + contato.getId() + "';";
+		*/
 		String Sql = "UPDATE contatos SET nome=?,dtNasc=?,endereco=?,telefone=?,celular=?,email=?,sexo=? WHERE ID=?;";
-
+		
 		try {
 			stn = DbConexao.abrirConexao().prepareStatement(Sql);
 			stn.setString(1, contato.getNome());
@@ -139,7 +119,8 @@ public class ContatoDAO {
 			stn.setString(6, contato.getEmail());
 			stn.setString(7, contato.getSexo());
 			stn.setInt(8, contato.getId());
-
+			
+			
 			stn.execute();
 			DbConexao.abrirConexao().close();
 		} catch (SQLException e) {
@@ -151,12 +132,12 @@ public class ContatoDAO {
 
 	public void excluir() {
 		String Sql = "DELETE FROM contatos WHERE ID=?;";
-
+		
 		try {
 			stn = DbConexao.abrirConexao().prepareStatement(Sql);
-			stn.setInt(1, contato.getId());// id do usuario que será deletado
-			stn.execute();// execute a instrução
-			DbConexao.abrirConexao().close();
+			stn.setInt(1, contato.getId());//id do usuario que será deletado
+			stn.execute();//execute a instrução
+			DbConexao.abrirConexao().close(); 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
