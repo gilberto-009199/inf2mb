@@ -1,0 +1,141 @@
+<html>
+	<head>
+		<META charset="utf-8">
+	
+	</head>
+	<body>
+	<script  src = "./script.js"></script>
+	<center>
+	<h1> Teste Validação</h1> 
+	
+	<fieldset style="width: 50%;">		
+		<legend><h3>Dados Pessoais</h3></legend>
+		<table cellspacing="10">
+		
+			<tr>
+				<td align="right">
+					<label>Nome Completo: </label>
+				</td>
+				<td>
+					<input type="text" size="40" id="txtNome" onchange="nomepadrao(this.id)">
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="right">
+					<label>Data de Nascimento: </label>
+				</td>
+				<td>
+					<input type="text" size="10" id="txtData" placeholder="01/01/0001" onchange="nomepadrao(this.id)" > 
+
+				</td>
+			</tr>
+			<tr>
+				<td align="right">
+					<label>E-mail para contato: </label>
+				</td>
+				<td>
+					<input type="text" size="30" id="txtEmail" placeholder="exemplo: exemplo@mail.com" onchange="nomepadrao(this.id)"> 
+
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="right">
+					<label>Celular: </label>
+				</td>
+				<td>
+					<input type="text" size="30" id="txtCelular" placeholder="exemplo: (11) 97894-4561" onchange="nomepadrao(this.id)"> 
+
+				</td>
+			
+			<tr>
+				<td align="right">
+					<label>RG: </label>
+				</td>
+				<td>
+					<input type="text" size=20 id="rg"  placeholder="11.111.111-1" onchange="nomepadrao(this.id)"> 
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="right">
+					<label>CPF:</label>
+				</td>
+				<td>
+					<input type="text" size=20 id="cpf" placeholder="111.111.111-11" onchange="nomepadrao(this.id)">
+				</td>
+			</tr>
+		
+		</table>
+	</fieldset>
+	
+	<br><br>
+	
+	<fieldset style="width: 50%;">
+		<legend > <h3>Dados de Endereço</h3></legend>
+		<table cellspacing="10">
+			<tr>
+				<td align="right">
+					<label>Rua:</label>
+				</td>
+				<td>
+					<input type="text" size="30" id="txtRua" onchange="nomepadrao(this.id)">
+				</td>
+			</tr>
+			<tr>
+				<td align="right">
+					<label for="numero">Numero:</label>
+				</td>
+				<td>
+					<input type="text" size="4" id="txtNumero" onchange="nomepadrao(this.id)">
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="right">
+					<label>Bairro: </label>
+				</td>
+				<td>
+					<input type="text" id="txtBairro" onchange="nomepadrao(this.id)">
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="right">
+					<label>Estado:</label>
+				</td>
+				<td>
+					<input type="text" size="4" id="txtEstado" onchange="nomepadrao(this.id)">
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="right">
+					<label>Cidade: </label>
+				</td>
+				<td>
+					<input type="text" id="txtCidade" onchange="nomepadrao(this.id)">	</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="right">
+					<label>CEP: </label>
+				</td>
+				<td>
+					<input type="text" size="10" id="txtCep" placeholder="1111-111" onchange="nomepadrao(this.id)">
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+	
+<br><br>
+
+	<input type="button" onclick="validar()" value="Cadastrar">
+	
+	</center>
+	
+	
+	</body>
+</html>

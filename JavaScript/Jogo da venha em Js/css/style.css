@@ -1,0 +1,15 @@
+img{
+	border-radius:46px;
+	
+}
+#velhatabela  img:hover{
+	width:134px;
+	height:130px;
+    transform: rotate(360deg);
+    transition: 0.2s;
+	
+}/*
+table:hover{
+    transform: rotate(360deg);
+    transition: 12s;
+}*/

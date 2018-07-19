@@ -1,0 +1,21 @@
+User-agent: *
+
+Disallow: /img/
+Disallow: /user/
+Disallow: /files/
+Disallow: /fonts/
+Disallow: /js/
+Disallow: /lib/
+Disallow: /css/
+Disallow: /erro/
+Disallow: /*.gif$
+Disallow: /*.jpg$
+Disallow: /*.png$
+Disallow: /*.css$
+Dissalow: /default.html
+
+Allow: /contact.html
+Allow: /index.html
+Allow: /product.html
+
+sitemap: http://mysite.tmp/sitemap.xml

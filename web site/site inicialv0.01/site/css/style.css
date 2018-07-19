@@ -1,0 +1,252 @@
+/*	Propriedades pertencentes ao estilo default dos itens das paginas do site.	*/
+/*	Declarando a Fonte Ubuntu	*/
+@font-face {
+    font-family: ubuntu;
+    src: url(../fonts/ubuntu/Ubuntu-Regular.ttf);
+}
+@font-face {
+    font-family: ubuntu;
+    src: url(../fonts/ubuntu/Ubuntu-Bold.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: ubuntu;
+    src: url(../fonts/ubuntu/Ubuntu-Italic.ttf);
+    font-style:italic;
+}
+/* Inportando fonte e classes do Awesome Icons*/
+
+:root {
+	--header-color: #0085b6;
+	--nav-color:#00d49d;
+	--section-color:#19c2f2;
+	--article-color:#f7a319;
+}
+/* Configuraçao de Largura dos Elementos html */
+@media screen and (max-width: 360px){
+	:root{
+        --text-font-size:7px;
+	--link-font-size:13px;
+	}
+}
+@media screen and (min-width: 361px) and (max-width:700px){
+	:root{
+		--text-font-size:13px;
+		--link-font-size:19px;
+	}
+}
+@media screen and (min-width: 701px) and (max-width:910px){
+	:root{
+		--text-font-size:19px;
+		--link-font-size:25px;
+	}
+}
+@media screen and (min-width: 910px) and (max-width:1328px){
+	:root{
+		--text-font-size:25px;
+		--link-font-size:28px;
+	}
+}
+@media screen and (min-width: 1328px){
+	:root{
+		--text-font-size:28px;
+		--link-font-size:28px;
+	}
+}
+
+* {
+	padding:0;
+	margin:0;
+	font-family: ubuntu,Verdana,Helvetica;
+	font-size:var(--text-font-size);
+	text-align:center;
+}
+
+section{
+	display: block;
+	width:100%;
+	height:auto;
+	border-bottom:solid 2px var(--section-color);
+	background-color:transparent;
+}
+		
+header{
+	width: 100%;
+	padding:0px;
+}
+
+footer{/* Atençao altere o margin 100%  pois na esponsividade ele 
+			pegara 50% da tela entao deixe px*/
+	width:100%;
+	height:auto;
+	opacity:1;
+	background:white;
+	margin-top:150px;
+	opacity:0.8;
+	border-top:solid 2px #8b8d91;
+}
+
+h1,h2,h3,h4,h5,h6{
+    text-align:center;
+}
+
+div{
+	margin-left:auto;
+	margin-right:auto;
+			
+}
+
+p{
+    text-align:justify;
+    font-size:var(--text-font-size);
+}
+
+audio, canvas, img, video {
+    vertical-align: middle;
+}
+
+audio, canvas, video {
+    display: inline-block;
+}
+
+img{
+	display: block;
+}
+a {
+    font-size: var(--link-font-size);
+    text-decoration: none;
+    text-align:center;
+}
+
+a:hover, a:focus {
+    font-weight: bold;
+    border-bottom: solid 1px;
+}
+/* Bloquei o pular para conteudo dos não utilizadores de acessibilidade*/
+a[href^="#main"]{ 
+    display:none;
+    color:tranparent;
+    margin:0;
+    padding:0;
+    
+}
+#main a{
+	margin:1px;
+	transition-duration: 0.2s;
+}
+
+#main a:hover{
+	border:solid 1px;/* Pega a cor da letra para ser a borda*/
+	border-radius:10px 0px 0px 10px;
+}
+
+/*	Formataçao de Link's */
+/* Links para site */
+#main a[href^="http://"]{
+	color:#db0e7c;
+	padding-left: 24px;
+    background: url(../img/assets/external.png) no-repeat center left;
+}
+
+/* Links internos */
+#main a[href$=".html"]{
+    padding-left: 24px;
+	color:#19c2f2;
+    background: url(../img/assets/internal.png) no-repeat center left;
+}
+
+/* Links de Ancora*/
+#main a[href$="#A"]{
+    padding-left: 24px;
+	color:#19c2f2;
+    background: url(../img/assets/internal.png) no-repeat center left;
+}
+
+/* Links para mail */
+#main a[href^="mailto:"]{
+    padding-left: 24px;
+	color:#4dba58;
+    background: url(../img/icones/mail-icon.png) no-repeat center left;
+}
+
+/* Links para pdf's*/
+#main a[href$=".pdf"]{
+    padding-left: 24px;
+	color:#f7a319;
+    background: url(../img/icones/pdf-icon.png) no-repeat center left;
+}
+
+/* Links para Arquivos Diversos*/
+#main a[href^="../file/"]{
+	padding-left: 24px;
+	color:#f26b21;
+    background: url(../img/icones/archiver-icon.png) no-repeat center left;
+}
+
+/* Links para Audio e Video */
+#main a[href$=".ogg"],[href$=".mp4"],[href$=".mp3"],[href$=".wma"],[href$=".wmv"],[href$=".wav"]{
+	padding-left: 24px;
+	color:#ff005d;
+    background: url(../img/icones/midia-icon.png) no-repeat center left;
+}
+
+#main a[href$=".ogg"]{
+    background: url(../img/icones/midia-icon/ogg-icon.png) no-repeat center left;
+}
+
+#main a[href$=".mp4"]{
+    background: url(../img/icones/midia-icon/mp4-icon.png) no-repeat center left;
+}
+
+#main a[href$=".mp3"]{
+    background: url(../img/icones/midia-icon/mp3-icon.png) no-repeat center left;
+}
+
+#main a[href$=".wma"]{
+    background: url(../img/icones/midia-icon/wma-icon.png) no-repeat center left;
+}
+
+#main a[href$=".wmv"]{
+    background: url(../img/icones/midia-icon/wmv-icon.png) no-repeat center left;
+}
+
+#main a[href$=".wav"]{
+    background: url(../img/icones/midia-icon/wav-icon.png) no-repeat center left;
+}
+
+/* Links para Formatos de arquivo Default */
+#main a[href$=".doc"],[href$=".docx"]{
+	padding-left: 24px;
+	color:#ff005d;
+    background: url(../img/icones/midia-icon/doc-icon.png) no-repeat center left;
+}
+
+#main a[href$=".f4v"],[href$=".fla"],[href$=".flv"],[href$=".swf"]{
+	padding-left: 24px;
+	color:#ff005d;
+    background: url(../img/icones/midia-icon/flv-icon.png) no-repeat center left;
+}
+
+#main a[href$=".txt"]{
+	padding-left: 24px;
+	color:#ff005d;
+    background: url(../img/icones/midia-icon/txt-icon.png) no-repeat center left;
+}
+
+#main a[href$=".xls"],[href$=".xlsx"]{
+	padding-left: 24px;
+	color:#ff005d;
+    background: url(../img/icones/midia-icon/xls-icon.png) no-repeat center left;
+}
+
+#main a[href$=".ppt"],[href$=".pptx"]{
+	padding-left: 24px;
+	color:#ff005d;
+    background: url(../img/icones/midia-icon/ppt-icon.png) no-repeat center left;
+}
+
+#main a[href$=".bin"]{
+	padding-left: 24px;
+	color:#ff005d;
+    background: url(../img/icones/midia-icon/bin-icon.png) no-repeat center left;
+}

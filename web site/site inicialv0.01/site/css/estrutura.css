@@ -1,0 +1,121 @@
+/*	Propriedades das estruturas default das paginas.	*/
+
+		#menu{
+			height:32px;
+			width:100%;
+			display:inline-block;
+			cursor:pointer;
+			font-weight:bold;
+			padding:10px 5px;
+			position:fixed;
+			left:0;
+			top:0;
+		}
+		#main{
+			height:auto;
+			width:96%;
+			min-height:500px;
+			margin-top:210px;
+			border-top:solid 2px #000000;
+			border-bottom:solid 2px #000000;
+			background-color:white;
+			margin-left:auto;
+			margin-right:auto;
+			line-height: 2;
+		}
+		#video_background{
+			min-width:100%;
+			position:fixed;
+			right:0;
+			bottom:0;
+			min-height:100%; 
+			z-index: -100;
+			background:url(./backgroundtela.png);
+			background-size:cover;
+		}
+		#timer{
+			background:transparent;	
+			width:50%;
+			height:110px;
+			margin-top:60px;
+			color:#00ff21;
+		}
+		#timer img{
+			display:block;	
+			margin-left:auto;
+			margin-right:auto;
+			width:160px;
+			height:160px;
+		}
+		#footer_caixa{
+			height:100%;
+			width:70%;
+		}
+		.content{
+			/*moz-box-shadow:inset 0px 39px 11px 1px #ffffff;*/
+			-webkit-box-shadow:inset 0px 39px 11px 1px #ffffff;
+			box-shadow:inset 0px 39px 11px 1px #ffffff;
+			background-color:transparent;
+			border:0px solid #dcdcdc;
+			display:inline-block;
+			color:#666666;
+			font-family:ubuntu;
+			font-size:15px;
+			font-weight:bold;
+			padding:10px 5px;	
+		}
+		.item_menu{
+			float:left;
+			padding-right:30px;
+			padding-left:30px;
+		}
+		.borda_direita{
+			border-right:solid 1px black;
+		}
+		.borda_embaixo{
+			border-bottom:solid 1px black;
+		}                
+		.item_menu:hover{
+			background-color: #E8E8E8;	
+		}
+                .item_menu:hover > a{
+                    color:#006D5C;
+                    text-decoration: none;
+                    border-bottom: solid 1px;
+		}
+                .item_menu a:link, a:visited {
+                    color:#666666;
+                    text-decoration: none;
+                }
+                .item_menu a:hover, a:focus {
+                    color:#006D5C;
+                    text-decoration: none;
+                    border-bottom: solid 1px;
+                }
+		.anotacao{
+			float:right;
+			font-size:50%;
+			margin-right:15px;
+		}
+		.footer_list{
+			display:block;
+			color:#444;
+			padding:2px;
+			margin-left:7px;
+			font-size: var(--link-font-size);
+			margin-bottom:10px;
+		}
+		.footer_list li {
+			text-align: left;
+			padding:2px;
+			list-style: none;
+			color:#006D5C;
+		}
+		
+		.footer_list:hover{
+			color:#006D5C;
+		}
+		.footer_list li:hover{
+			color:#444;
+		}
+		

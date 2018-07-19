@@ -1,0 +1,91 @@
+<html>
+
+	<head>
+		<title>Jogo velha</title>
+		<meta charset="utf-8">
+		<script  src = "script.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<script  src = "robotvelha1.js"></script>
+		<script  src = "robotvelha2.js"></script>
+		<script  src = "robotvelha3.js"></script>
+	</head>
+	
+	<body>
+		<table width="100%" height="100%" border="1">
+			<tr height="5%">
+				<td width="100%" colspan="3"><h1><p align="center">Jogo Velha</p></h1></td>
+				
+			</tr>
+			<tr height="80%">
+				<td align="center" width="70%">
+				<table width="100%" height="100%" border="2">
+				<tr height="5%">
+						<td>
+							<table>
+								<tr>
+									<td ><img  id="vezimg" src="./img/o-icon.png" height="17" width="17" alt="o" /></td>
+									<td > <input type="button" id= "vez" value="Sua vez"/></td>
+								</tr>
+							</table>
+						</td>
+				</tr>
+				<tr height="95%">
+					<td width="100%" align="center">
+						<table id="velhatabela" width="450" height="450" border="1" bgcolor="#00ff1d">
+							<tr height="32%">
+								<td width="32%" align="center"> 
+								
+									<img onclick="defini_celula(this.id)" style="hover{ transform: rotate(2deg);transition: 1s;}" id="c1_1" src="./img/blue-background2.jpg" height="110" width="120" alt="0" />
+								
+								</td>
+								<td width="32%" align="center">
+									<img onclick="defini_celula(this.id)" id="c1_2"  src="./img/blue-background2.jpg" height="110" width="120" alt="0"/>
+								</td>
+								<td width="32%" align="center">
+									<img  onclick="defini_celula(this.id)" id="c1_3"  src="./img/blue-background2.jpg" height="110" width="120" alt="0" />
+								</td>
+							</tr>
+							<tr height="32%">
+								<td width="32%" align="center">
+									<img  onclick="defini_celula(this.id)" id="c2_1"  src="./img/blue-background2.jpg" height="110" width="120" alt="0" />
+								</td>
+								<td width="32%" align="center" >
+									<img  onclick="defini_celula(this.id)" id="c2_2"  src="./img/blue-background2.jpg" height="110" width="120" alt="0" />
+								</td>
+								<td width="32%" align="center" > 
+									<img onclick="defini_celula(this.id)"	id="c2_3"  src="./img/blue-background2.jpg" height="110" width="120" alt="0" />
+								</td>
+							</tr>
+							<tr height="32%">
+								<td width="32%" align="center" >
+									<img onclick="defini_celula(this.id)" id="c3_1"  src="./img/blue-background2.jpg" height="110" width="120" alt="0" />
+								</td>
+								<td width="32%" align="center" >
+									<img onclick="defini_celula(this.id)" id="c3_2"  src="./img/blue-background2.jpg" height="110" width="120" alt="0" />
+								</td>
+								<td width="32%" align="center" >
+									<img onclick="defini_celula(this.id)" id="c3_3"  src="./img/blue-background2.jpg" height="110" width="120" alt="0" />
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+			<td width="30%">
+				<form>
+					<input type="radio" id="radio1" name="robot" value="facil" />Facil<br>
+					<input type="radio" id="radio2" name="robot" value="intermediario"/>Intermediario<br>
+					<input type="radio" id="radio3" name="robot" value="dificil"/>Dificil
+				</form>
+			</td>
+			</tr>
+			
+		</table>
+		<audio id="audio">
+			<source src="./mario.mp3" type="audio/mpeg">
+    	</audio>
+	</body>
+
+
+</html>

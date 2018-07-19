@@ -1,0 +1,111 @@
+<html>
+	<head>
+		<META charset="utf-8"/>
+		<title>GeoPlanas</title>
+        <link rel="stylesheet" type="text/css" href="./css/FormasCSSGilbertoRamos.css">
+    </head>
+	<body>
+	<script  type="text/javascript" src = "script.js"></script>
+	<div class="container" style="padding:10px;">
+        <div class="row">
+			<div class="col-md-3">
+                <div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							Formas Geometricas
+						</h3>
+					</div>
+					<div class="panel-body" style="padding:3px">
+                        <div class="list-group" >
+                            <button type="button" onclick="Main.montaform(this)" style="background-color:#5bc0de; border-color:#46b8da; color:white; font-size:20px; text-align:center;" class="list-group-item">Circulo</button>
+                            <button type="button" onclick="Main.montaform(this)" style="background-color:#5bc0de; border-color:#46b8da; color:white; font-size:20px; text-align:center;" class="list-group-item" class="list-group-item">Triangulo</button>
+                            <button type="button" onclick="Main.montaform(this)" style="background-color:#5bc0de; border-color:#46b8da; color:white; font-size:20px; text-align:center;" class="list-group-item" class="list-group-item">Quadrilátero</button>
+                            <button type="button" onclick="Main.montaform(this)" style="background-color:#5bc0de; border-color:#46b8da; color:white; font-size:20px; text-align:center;" class="list-group-item" class="list-group-item">Polígono regular</button>
+                        </div>
+					</div>
+				</div>
+
+
+            </div>
+            <div class="col-md-9">
+                <div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							Calculos
+						</h3>
+					</div>
+					<div class="panel-body">
+                        <div class="panel panel-primary">
+					       <div class="panel-heading">
+						      <h3 class="panel-title">
+                                Dados Geometricos
+						      </h3>
+					       </div>
+					       <div class="panel-body" id="formula">
+                                <form><fieldset>
+								    <legend>Dados da Figura</legend>
+                                        <div class="form-row">
+									<div class="form-group col-md-4">
+										<label for="txtAB">Lado :</label> <input class="form-control"
+											name="txtAB" type="text" maxlength="40" required="required">
+									</div>
+									<div class="form-group col-md-4">
+										<label for="txtAC">Lado :</label> <input
+											class="form-control" name="txtAC" type="text"
+											maxlength="40" required="required">
+									</div>
+
+									<div class="form-group col-md-4">
+										<label for="txtBC">Lado :</label> <input
+											class="form-control" name="txtBC" type="text"
+											maxlength="40" required="required">
+									</div>
+								</div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12" >
+                                        <input style="float:right;" onclick="calcular()" class="btn  btn-primary"  value="Calcular" >
+                                    </div>
+                                </div>
+							</fieldset>
+						</form>
+					       </div>
+				        </div>
+                        <div class="panel panel-primary">
+					       <div class="panel-heading">
+						      <h3 class="panel-title">
+                                Calculos Realizados
+						      </h3>
+					       </div>
+					       <div class="panel-body" id="espaçotabela">
+
+
+
+                    <!--<table class="table table-striped">
+                    <thead>
+								    		<tr>
+									    		<th>Figura</th>
+									    		<th>Tipo</th>
+									    		<th>Área</th>
+									    		<th>Perímetro</th>
+                      		<th>Data/Hora</th>
+								    		</tr>
+							     </thead>
+                         <tr>
+                           <td>Triangulo</td><td>Isoceles</td>
+                           <td>200cm²</td><td>70cm</td>
+                           <td>02/07 as 19:00</td>
+                         </tr>
+                    </table>-->
+					       </div>
+				        </div>
+					</div>
+				</div>
+      </div>
+		</div>
+    </div>
+		<script>var formul  =   new formulario("Circulo");
+		formula.innerHTML = formul.criaformulario();
+		Main.criaTabela();
+</script>
+	</body>
+</html>
