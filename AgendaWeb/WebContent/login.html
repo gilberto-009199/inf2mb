@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="./css/bootstrap.css">
+<title>UaiContatos Login |* ~ *|</title>
+</head>
+<body style="color: black; font-weight: bold; font-size: 18px;">
+	<header>
+		<div class="navbar navbar-default navbar-fixed-top">
+			<h1>UaiLogin |* ~ *|</h1>
+		</div>
+	</header>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<div class=" well"
+					style="margin-top: 100px; background-color: #003cff;">
+
+					<p>
+						<img class="img-circle"
+							style="border: solid 2px black; background-color: aqua;"
+							src="./imagens/login-icon.png">
+					</p>
+
+					<form method="POST" action="Autentica"
+						style="background-color: white; color: white; font-size: 18px;">
+						<fieldset style="margin-right: 20px; margin-left: 40px;">
+
+							<legend align="left" style="color: black; font-size: 26px;">Preencha
+								os campos para efetuar o login:</legend>
+							<div class="form-group">
+								<label for="txtEmail" style="color: black; font-weight: bold;">Email:</label>
+
+								<input type="email" name="txtEmail" class="form-control"
+									style="border: solid 2px black;" maxlength="60" required />
+							</div>
+							<div class="form-group">
+								<label for="txtSenha" style="color: black; font-weight: bold;">Senha:</label>
+								<input type="password" name="txtSenha" maxlength="60"
+									class="form-control" style="border: solid 2px black;" required />
+							</div>
+							<input type="submit" class="btn-success btn" value="Login"
+								style="margin-right: 6px; border: solid 3px #00f3cb; font-size: 18px; color: white; background-color: black; margin-top: 10px; margin-bottom: 7px;" />
+							<span style="color: black; font-weight: bold;"> Não tem
+								Cadastro? Use:<a style="margin-left: 30px;"
+								href="novo_usuario.html">Cadastrar</a>
+							</span>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

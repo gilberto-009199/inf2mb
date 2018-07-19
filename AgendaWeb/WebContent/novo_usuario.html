@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="./css/bootstrap.css">
+<title>UaiCadastro!!Novo Usuario</title>
+</head>
+
+<body>
+	<header>
+		<div class="navbar navbar-default navbar-fixed-top">
+			<h1>UaiCadastro |* ~ *|</h1>
+		</div>
+	</header>
+	<div class="container" style="margin-top: 100px;">
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<div class="panel panel-success">
+					<div class="panel-heading" style="font-size: 18px;">Vamos
+						efetura o cadastro</div>
+
+					<div class="panel-body">
+
+						<form action="GravarUsuario" method="post">
+							<fieldset>
+								<legend>Dados do Usuario:</legend>
+								<div class="form-row">
+									<div class="form-group col-md-6">
+										<label for="txtNome">Nome:</label> <input class="form-control"
+											name="txtNome" type="text" maxlength="40" required="required">
+									</div>
+									<div class="form-group col-md-3">
+										<label for="txtCidade">Cidade:</label> <input
+											class="form-control" name="txtCidade" type="text"
+											maxlength="40" required="required">
+									</div>
+
+									<div class="form-group col-md-3">
+										<label for="txtDtNasc">Data de nacimento:</label> <input
+											class="form-control" name="txtDtNasc" type="date"
+											maxlength="40" required="required">
+									</div>
+								</div>
+							</fieldset>
+							<fieldset>
+
+								<legend>Dados de Autenticação</legend>
+								<div class="form-row">
+							 		<div class="form-group col-md-6">
+							 			<label  for="txtEmail">E-mail:</label>
+							 			<input class="form-control" name="txtEmail" type="email" maxlength="40" required="required">
+							 		</div>
+							 		<div class="form-group col-md-3">
+							 			<label  for="txtSenha">Senha:</label>
+							 			<input class="form-control" name="txtSenha" type="password" maxlength="40" required="required">
+							 		</div>
+							 		
+							 		<div class="form-group col-md-3">
+							 			<label  for="txtConfSenha">Re-Senha</label>
+							 			<input class="form-control" name="txtConfSenha" type="password" maxlength="40" required="required">
+							 		</div>
+							 	</div>
+							</fieldset>
+							<hr>
+							<div class="form-row">
+									<div class="form-group col-md-6">
+										<input class="btn " type="submit" value="Cadastrar" style="font-size: 18px; color: white; background-color: black; ">
+										<input class="btn " type="reset" value="Limpar" style="float:right; margin-right: 6px; border: solid 2px #dff0d8; font-size: 18px; color: white; background-color: black; margin-top: 10px; margin-bottom: 7px;">
+										<a href="login.html" class="btn btn-danger"> Voltar para login</a>
+									</div>
+									
+								</div>
+						</form>
+					</div>
+
+					<div class="panel-footer">parte de baixo</div>
+				</div>
+			</div>
+
+			<div class="col-md-2"></div>
+		</div>
+	</div>
+
+</body>
+</html>
